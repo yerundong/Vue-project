@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //存在问题：把空白当做 文本
+        window.onload = function(){
+            var oDiv1 = document.getElementById('div1');
+            alert(oDiv1.childNodes.length);//2
+            alert(oDiv1.childNodes[1].nodeType);//2 属于文本【也就是childNodes把空白也当做一个文本节点】
+            oDiv1.childNodes[1].nodeValue = 'sss';//空白是一个节点，也可操作
+        };
+        //节点操作方法：创建节点、复制节点、插入节点、复制节点、替换节点
+        /*
+             方法              说明
+         createElement()    创建一个元素节点
+         appendChild()      将新节点追加到子节点列表的后面
+         createTextNode()   创建一个文本节点
+         insertBefore()      将新节点插在前面（通过父节点操作）
+         replaceChild()     将新节点替换旧节点（通过父节点操作）
+         cloneNode()        复制节点
+         removeChild()      移除节点
+         */
+        window.onload = function () {
+            var nodp = document.createElement('p');//创建一个元素节点,还没放进去
+            var oDiv1 = document.getElementById('div1');
+            oDiv1.appendChild(nodp);//将nodp追加到div1子节点列表（默认加在最后面）
+            var text = document.createTextNode('大家好');//创建一个文本节点
+            nodp.appendChild(text);//将text文档插入nodp当中
+            var noda = document.createElement('a');
+            //【insertBefore】将新节点插在前面
+            var oBody = document.getElementById('bdy');//获取父节点
+            oDiv1.parentNode.insertBefore(noda,oDiv1);//父节点.parentNode.insertBefore(子节点1,子节点2)。通过父节点操作
+            oBody.insertBefore(noda,oDiv1);//或者直接获取父节点
+
+            var oEm = document.createElement('em');//
+            var oB = document.getElementById('ib');
+            oDiv1.replaceChild(oEm,oB);//将b标签及内的文本一并替换了
+
+            var clone = oBody.children[1].cloneNode(true);//只复制，还没放进去;如果是false，只复制标签，不复制内容
+            oBody.appendChild(clone);
+
+            //oDiv1.removeChild(nodp);//移除节点
+
+
+
+
+        }
+    </script>
+</head>
+<body id="bdy">
+    <div id="div1" class="oo" title="xx" onclick="ooxx"><b id="ib">我想到山顶看看风景</b>/</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>算法排序</title>
+    <script>
+    /*
+        插入排序
+        1、从第一个元素开始，该元素可以认为已经被排序；
+        2、取出下一个元素，在已经排序的元素序列中从后向前扫描；
+        3、如果该元素（已排序）大于新元素，将该元素移到下一位置；
+        4、重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；
+        5、将新元素插入到该位置后；
+        6、重复步骤2~5。
+        */
+    function insertSort(array) {
+        for (var i = 1; i < array.length; i++) {
+            var key = array[i];
+            var j = i - 1;
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j--;//j=0
+            }
+            array[0+ 1] = key;
+        }
+        return array;
+    }
+
+    
+
+    /*
+    冒泡排序
+	冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
+	1、比较相邻的元素。如果第一个比第二个大，就交换它们两个；
+	2、对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；
+	3、针对所有的元素重复以上的步骤，除了最后一个；
+	4、重复步骤1~3，直到排序完成。
+    */
+
+    function bubbleSort(array) {
+        var len = array.length;//5
+            temp;
+        for (var i = 0; i < len - 1; i++) {
+            for (var j = len - 1; j > i; j--) { //从后往前调换
+                if (array[j] < array[j - 1]) {
+                    temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
+  
+
+
+    function bubbleSort1(arr) {
+        var i = arr.length,//4
+            j;
+        var temp;
+        while (i > 0) {
+            for (j = 0; j < i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+            i--;
+        }
+        return arr;
+    }
+
+    
+    /*
+    快速排序
+	快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。
+	1、从数列中挑出一个元素，称为 ”基准”（pivot）；
+	2、重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+	3、递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。
+     */
+    function quickSort(arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        var midIndex = Math.floor(arr.length / 2);//求出中间值
+        var midValue = arr.splice(midIndex, 1);//截取出中间值
+        var left = [];
+        var right = [];//划分左右两个数组
+        for (var i = 0; i < arr.length; i++) {
+            //alert(arr.length);//4
+            if (arr[i] < midValue) {
+                left.push(arr[i]);//小于中间值，放左边
+            } else {
+                right.push(arr[i]);//大于中间值，放右边
+            }
+        }
+        return quickSort(left).concat(midValue,quickSort(right));//左右两个数组递归
+    };
+alert(quickSort([27,21,100,16,11]))
+
+
+    /*
+    选择排序
+	选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。
+	n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结果。具体算法描述如下：
+	1、初始状态：无序区为R[1..n]，有序区为空；
+	2、第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；
+	3、n-1趟结束，数组有序化了。
+     */
+    function selectSort(array) {
+        var len = array.length,
+            temp;
+        for (var i = 0; i < len - 1; i++) {
+            var min = array[i];
+            for (var j = i + 1; j < len; j++) {
+                if (array[j] < min) {
+                    temp = min;
+                    min = array[j];
+                    array[j] = temp;
+                }
+            }
+            array[i] = min;
+        }
+        return array;
+    }
+    /*
+    归并排序
+	归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法的一个非常典型的应用。归并排序是一种稳定的排序方法。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列间有序。若将两个有序表合并成一个有序表，称为2-路归并。
+	1、把长度为n的输入序列分成两个长度为n/2的子序列；
+	2、对这两个子序列分别采用归并排序；
+	3、将两个排序好的子序列合并成一个最终的排序序列。
+    */
+    function merge(left, right) {
+        var result = [];
+        while (left.length > 0 && right.length > 0) {
+            if (left[0] < right[0]) {
+                /*shift()方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。*/
+                result.push(left.shift());
+            } else {
+                result.push(right.shift());
+            }
+        }
+        return result.concat(left).concat(right);
+    }
+
+    function　 mergeSort(array) {
+        if (array.length == 1) {
+            return array;
+        }
+        var middle = Math.floor(array.length / 2),
+            left = array.slice(0, middle),
+            right = array.slice(middle);
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

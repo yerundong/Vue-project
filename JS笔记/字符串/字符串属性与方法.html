@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //字符串的定义(类数组)  索引相当于数组中的下标 从0开始
+        var str1 = "hello";//string  【一】
+        var str2 = new String("hi");//object类型  【二】
+        //区别在于:
+        str1.one = "hehe";//X
+        str2.one = "haha";//√
+        //alert(str1.one);//undefined string类型不可添加属性
+        //alert(str2.one);//haha object类型可添加属性
+		
+		//字符串拥有length属性（类数组）
+        //alert(str1.length);
+        
+//==================【字符串方法】===============//
+        
+        //【str.concat(str,str,str...)】方法用于连接两个或多个字符串。
+        var strTotal = str1.concat(str2,'qqq','www','eee');
+        //console.log(strTotal);//hellohiqqqwwweee
+        
+        //【str.charAt(index)】方法可返回指定位置的字符。
+        //console.log(str1.charAt(4));//o
+        
+        //【str.charCodeAt(index)】方法可返回指定位置的字符的 Unicode 编码。
+        //console.log(str1.charCodeAt(4));//111
+        
+        //【String.fromCharCode()】将 Unicode 编码转为一个字符
+        //console.log(String.fromCharCode(111));//o
+        
+        //【str.indexOf()】返回【某个或某段字符串值】在整个字符串中【首次出现的位置（索引值）】,没有找到返回-1。
+//      console.log(str1.indexOf('l'));//2
+//      console.log(str1.indexOf('ll'));//2
+//      console.log(str1.indexOf('lll'));//-1
+
+ 		//【str.lastIndexOf()】返回【某个或某段字符串值】在整个字符串中【最后一次出现的位置（索引值）】,没有找到返回-1。
+//      console.log(str1.lastIndexOf('l'));//3
+//      console.log(str1.lastIndexOf('ll'));//2
+//      console.log(str1.lastIndexOf('lll'));//-1
+
+		//【str.search(str|reg)】返回【某个或某段字符串值】在整个字符串中【首次出现的位置（索引值）】,没有找到返回-1。
+//		console.log(str1.search('l'));//2
+//		console.log(str1.search('ll'));//2
+//		console.log(str1.search(/a|e|l/));//1
+
+		//【str.slice(start, end)】可截取字符串的某个部分;
+//		start 必须. 要抽取的片断的起始下标。第一个字符位置为 0
+//		end	可选。 紧接着要抽取的片段的结尾的下标。如果该参数是负数，那么它规定的是从字符串的尾部开始算起的位置。
+//		var strSlice1 = str1.slice(1);
+//		var strSlice2 = str1.slice(1,2);
+//		var strSlice3 = str1.slice(1,-1);
+//      console.log(strSlice1);//ello
+//      console.log(strSlice2);//e
+//      console.log(strSlice3);//ell -1从右往左数
+//      console.log(str1);//hello 不变
+//substr()、substring()与slice（）的作用，用法基本一致，但推荐使用slice（）；
+//		console.log(str1.substr(1,2));//el
+//		console.log(str1.substring(1,2));//e
+
+		//【str.split(str|reg,limit)】把一个字符串分割成字符串数组。
+//		separator 可选。字符串或正则表达式
+//		limit 可选。该参数可指定返回的数组的最大长度。
+//		var strLikeArr = 'a,b,c,d,e';
+//		var arrFromStr1 = strLikeArr.split(',');
+//		var arrFromStr1_1 = strLikeArr.split(',',2);
+//		var arrFromStr2 = strLikeArr.split('');
+//		var arrFromStr2_1 = strLikeArr.split('',2);
+//		var arrFromStr3 = strLikeArr.split();
+//		var arrFromStr4 = strLikeArr.split(/b|d/ig);
+//		console.log(arrFromStr1);
+//		console.log(arrFromStr1_1);
+//		console.log(arrFromStr2);
+//		console.log(arrFromStr2_1);
+//		console.log(arrFromStr3);
+//		console.log(arrFromStr4);
+
+       //【str.match(str|reg)】匹配字符串，成功返回一个数组，否则null。
+//     var strMat = 'asdh809asdd98n234jn64sdf';
+//     console.log(str1.match('e'));//['e']
+//     console.log(str1.match(/e|o|p/g));//['e','o']
+//     console.log(strMat.match(/[a-z]/g).join(''));//asdhasddnjnsdf把所有的数字都去掉
+//     console.log(str1.match('y'));//null
+
+		//【str.replace(str|reg,str)】用一些字符替换另一些字符
+//		console.log(str1.replace('e','o'));//hollo
+//		console.log(str1.replace(/e|ll|o/g,'p'));//hppp
+
+        //【str.trim()】字符串去两边的空格,中间空格可用split(" ").join('')去除
+//      var strTrim='   he   he    ';
+//      console.log(strTrim.trim());//he   he
+//      console.log(strTrim.trim().split(" ").join(''));//hehe
+
+        //【toUpperCase()、toLowerCase()】转换大小写
+//      var str = "aoHJDOFsj";
+//      console.log(str.toUpperCase());//转换成大写
+//      console.log(str.toLowerCase());//转换成小写
+
+		//【str.valueOf()】返回 String 对象的原始值
+		//console.log(str1.valueOf());
+		
+        //【包装对象】
+        var num = new Number();//构造函数
+        //alert (typeof num)//object
+
+        var boo = new Boolean();
+         //alert (typeof boo)//object
+
+        var str = new String();
+        //alert (typeof str)//object
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

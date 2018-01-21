@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//********【document.getElementsByTagName()】 根据标签名进行查找
+        window.onload = function (){
+            var aLi = document.getElementsByTagName('li');//返回的是数组对象，数组包括所有li元素节点对象
+            //alert(aLi);//object HTMLCollection
+            //alert(aLi.length);//3 既是数组，便有【长度和下标】，根据下标可【针对性操作】
+            //alert(aLi[0].innerHTML);//lilei
+            //alert(aLi[1].innerHTML);//lihua
+            //alert(aLi.item(2).innerHTML);//kangkang【用item（）方法亦可】
+        }
+        //【针对性赋值】
+        window.onload = function (){
+            var aLi0 = document.getElementsByTagName('li')[0];//针对性赋值
+            //alert(aLi0.innerHTML);//liei
+        }
+        //【得到所有元素节点】
+        window.onload = function (){
+            var aAll = document.getElementsByTagName('*');
+            //alert(aAll.length);//10  共10个标签
+            //alert(aAll[0].tagName);//html
+            //alert(aAll[9].tagName);//li
+        }
+//******【document.getElementsByName()】 根据标签name属性的值进行查找
+        window.onload = function (){
+            var aText = document.getElementsByName('text');
+           //alert(aText.length);//
+     // ***dom只能对单个对象操作，不能对整个数组对象操作
+            //alert(aText.name);//undefined无效
+            //aText.value = "zhzha";//无效
+            //alert(aText[0].name);//text//
+            //aText[0].value = "zhzha";//
+   //***对本身没有name属性的元素进行【自添加name】，同样有效【IE9及以下版本不支持】
+            var aJs = document.getElementsByName('js');
+           alert( aJs.length);//3
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li name="js">lilei</li>
+        <li name="js">lihua</li>
+        <li name="js">kangkang</li>
+    </ul>
+<form>
+    <input type="text" name="text" title="用户名框" value="请输入用户名"><br><br>
+    <input type="text" name="text" title="用户名框" value="请输入用户名"><br><br>
+    <input type="text" name="text" title="密码框" value=""><br><br>
+    <input type="submit" name="login" title="登录" value="登录">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+

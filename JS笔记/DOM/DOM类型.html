@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是title</title>
+    <script>
+        window.onload = function(){
+        //alert(Node);//function Node{[native code]};本地代码、function类型的；IE中是object类型;IE8为未定义
+        //以下都是本地代码、function类型的；
+        /*类型名          说明
+          Node            表示所有类型名的接口【IE8以下版本不支持】
+          Document        表示文档类型
+          Element         表示元素节点类型
+          Text            表示文本节点类型
+          Comment         表示文档中的注释类型
+          CDATASection    表示CDATA区域类型
+          DocumentType    表示文档声明类型
+          DocumentFragment表示文档片段类型
+          Attr            表示属性节点类型类型
+
+          Node类型： Node类型是DOM1级就定义了，Node定义了12个数值常量以表示每种节点的类型值。
+                  常量名                   说明          NodeType值
+         Node.ELEMENT_NODE                 元素           1
+         Node.ATTRIBUTE_NODE               属性           2
+         Node.TEXT_NODE                    文本           3
+         Node.CDATA_SECTION_NODE           CDATA          4
+         Node.ENTITY_REFERENCE_NODE        实体参考       5
+         Node.ENTITY_NODE                  实体           6
+         Node.PROCESSING_INSTRUCTION_NODE  处理指令       7
+         Node.COMMENT_NODE                 注释           8
+         Node.DOCUMENT_NODE                文档根         9
+         Node.DOCUMENT_TYPE_NODE           docType        10
+         Node.DOCUMENT_FRAGMENT_NODE       文档片段       11
+         Node.NOTATION_NODE                符号           12
+        */
+        //直接获取Document类型：表示【文档】或【文档的根节点】，这个节点是【隐藏】的，没有具体的元素标签；
+        //document.write(document);//[object HTMLDocument]
+        //document.write(document.nodeType);//9---- Node.DOCUMENT_NODE --------文档根节点
+        //document.write(document.nodeName);//#document
+        //获取<!DOCTYPE html>
+        //document.write(document.childNodes[0]);//10--Node.DOCUMENT_TYPE_NODE--[object DocumentType];文档类型节点
+        //document.write(document.doctype);//10--Node.DOCUMENT_TYPE_NODE--[object DocumentType];
+        //直接获取<html>元素的节点对象
+        //document.write(document.documentElement);//1--Node.ELEMENT_NODE--元素--1--<html>
+        //document.write(document.childNodes[1].nodeType);//1--Node.ELEMENT_NODE--元素--1--[object HTMLHtmlElement]
+        //document.write(document.documentElement.nodeName);//html
+        //alert(document.clientWidth);//undefined
+        //alert(document.documentElement.clientWidth);//1280  【可视区】指的是html的clientWidth与clientHeight
+        //直接获取<body>元素的节点对象
+        //document.write(document.body);//1--Node.ELEMENT_NODE--元素--1--[object HTMLBodyElement]
+        //document.write(document.body.nodeName);//body
+        //alert(document.body.clientWidth);//1264
+        //获取<title>中的标题
+        //document.write(document.title);//我是title
+        //获取当前页面的url地址
+        //document.write(document.URL);//http://localhost:63342/js%E7%AC%94%E8%AE%B0/DOM/DOM%E7%B1%BB%E5%9E%8B.html
+        // 获取上个页面的url地址
+        //document.write(document.referrer);
+        //获取域名
+
+        //document.domain;//必须在服务器端，才能获取
+            //还有诸多：anchors，links，applets，forms，images；有兴趣再查吧
+
+
+
+
+
+            var oDDD = document.getElementById('ddd');
+            if (oDDD.nodeType == Node.ELEMENT_NODE){// Element.nodeType可以用【常量名】和【NodeType数值】表示
+                //alert('元素节点');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="ddd">
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

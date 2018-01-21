@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //【new创建】new RegExp(string,pattern); pattern:i-不区分大小写 g-全局匹配 m-多行匹配； 默认单行
+        //var reg1 = new RegExp("hello","igm");
+
+
+        //【字面量创建】/string/pattern;
+        //var reg2 = /hello/igm;
+
+
+        //【使用正则表达式验证】--test() exec();
+        //【test()】 返回布尔类型reg.test(string);
+        var reg3 = new RegExp("hello");//reg必须是string中一部分方可匹配 即true
+        var str = "hello yo Hello";
+        //alert(reg3.test(str));//true
+
+        var reg4 = /He/i;//忽略大小写，输出小写
+        //alert(reg4.test(str));//true
+
+        //【exec()】 返回与string匹配的字符串，以数组类型（object），没匹配的返回null
+        //alert(reg4.exec(str));//he
+
+        //常用匹配
+        var reg1 = /^([\u4e00-\u9fa5]|[A-Za-z]|\_){1}$/;//以字母数字下划线开头；()代表一个整体，[]代表一个区间（范围）
+        var reg2 = /^([^\u4e00-\u9fa5A-Za-z\_]){1}$/;//不以字母数字下划线开头；|是【或】，【与】是连在一起写
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

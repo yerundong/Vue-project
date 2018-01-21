@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*闭包有【三个特性】：
+         1.函数嵌套函数
+         2.函数内部可以引用外部的参数和变量（return）--作用1
+         3.参数和变量不会被垃圾回收机制回收--作用2
+         */
+        //闭包：在一个(A)函数内部创建另一个(B)函数，通过另一个(B)函数访问这个(A)函数的局部变量
+        function show(){
+            var a = '我是局部变量';
+            return function fn(){
+                return a;
+            };
+        }
+        var b = show();//因为show返回fn,所以show()为fn，即b
+//      console.log(b());
+        
+        //闭包的【优势】：实现一个变量的累加
+        //闭包的【缺点】：占用内存；所以非必要时尽量少用闭包
+        //【局部变量】：调用函数时，局部变量开辟内存，函数调用结束时，局部变量内存立即释放
+        function add1(){
+            var age1 = 23;
+            age1++;
+            return age1;
+        }
+        //console.log(add1());//24
+        //console.log(add1());//24
+        //【全局变量】:全局变量内存一直存在，直到程序结束，但是污染了全局
+        var age2 = 23;
+        function add2(){
+            age2++;
+            return age2;
+        }
+        //alert(add2());//24
+        //alert(add2());//25
+        
+        //使用闭包实现一个变量的累加，比之全局变量污染较为稳妥
+        //原因：不管add3调用几次，其内部的函数fnc始终保持对外部变量age3的引用
+        function add3(){
+            var age3 = 23;
+            return function fnc(){
+                age3++;
+                return age3;
+            }
+        }
+        var getAge = add3();//必须用一个变量接收，只调用一次add3，重复调用内部匿名函数
+//      alert(getAge());//23
+//      alert(getAge());//24
+        //闭包局部变量不会立即释放，会保留一段时间
+        
+//******每次调用Foo的时候都会重新创建fnv函数，开辟新的地址
+        function Foo(){
+	        var i = 0;
+	        return function fnv( ){
+//          	console.log(i++);
+	        }
+	    }
+	    var k1 = Foo,k2 = Foo;
+	    var f1 = Foo(),f2 = Foo();
+//  	console.log(k1==k2);//true
+	    console.log(f1 == f2);//false 指向地址不一样
+    </script>
+</head>
+<body>
+
+</body>
+</html>

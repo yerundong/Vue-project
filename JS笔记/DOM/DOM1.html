@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    	//window--document--DOM
+        //DOM所操作的对象是--整个文档对象（document），细分为：1、元素节点 2、属性节点 3、文本节点
+        //每个节点都是一个对象
+        //【在document中获取元素】
+        document.getElementById('div1');
+        //alert(document.getElementById('div1'));//null 当程序执行到这里，下边还没执行，无法get到
+        //除了把js放下边外，还可以用window.onload 事件：当整个html页面加载完后，自动执行**代码
+        window.onload = function (){
+            var oDiv1 = document.getElementById('div1');//根据id名进行查找；获取到对象才能对他操作
+            //【操作元素节点】                                                             
+            //alert(oDiv1);//object HTMLDivElement 表示div元素类型的对象
+            //alert(oDiv1.tagName);//Div 得到元素标签名
+            //【操作属性节点】
+            //alert(oDiv1.id);//得到id名
+            //alert(oDiv1.className);//ddv 得到class名
+            //alert(oDiv1.title);//leo 得到标题
+            //alert(oDiv1.style);//object CSSStyleDeclaration;
+            //alert(oDiv1.style.color);//red 得到颜色
+            oDiv1.style.color = 'blue';//修改样式中的颜色 动态修改
+            //【操作文本节点】
+            //alert(oDiv1.innerHTML);//<p>雷猴啊</p> 得到<div></div>内的所有内容，包括标签
+            oDiv1.innerHTML = 'sss';//修改内容 把<div></div>内的所有内容，包括标签删除，用“雷猴哇”替换
+        };
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="div1" class = "ddv" title="leo" style="color:red;font-size:100px;" ><p>雷猴啊</p></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+<script>
+    //alert(document.getElementById('div1'));//object HTMLDivElement 表示div元素类型的对象
+</script>
+</html>

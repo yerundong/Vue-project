@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Fun (name) {
+				this.name = name;
+			}
+			Fun.prototype.func= function () {
+				console.log(this.name)
+			}
+			Fun.prototype.__proto__.fuk = function () {
+				console.log(2)
+			}
+			var fun1 = new Fun('a');
+//			fun1.func()
+			
+			String.prototype.defMethod = function (tp) {
+				str = this.concat(tp);
+				return this.concat(tp);
+			}
+			var str = 'abc';
+			str.defMethod('a')
+//			console.log(str)
+//			console.log(str.defMethod('a'))
+
+			let One = function(num){
+				this.num = num
+			}
+			One.prototype.fn1 = function () {
+				console.log(this.num)
+			}	
+			let one = new One(1)
+//			one.fn1()
+			
+			let Two = function(num){
+				One.call(this,num)
+			}
+//			Two.prototype = new One();
+			let two = new Two(2)
+			console.log(two)
+			
+		</script>
+	</body>
+</html>

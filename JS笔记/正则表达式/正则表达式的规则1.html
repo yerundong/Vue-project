@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //【.】代表任意字符（除换行外）
+        var reg1 = /b..k/;
+        var str1 = "books";
+        //alert(reg1.exec(str1));//book
+        //【?】出现0次或1次 【*】出现0次或多次 【+】出现1次或多次
+        var reg2 = /bo*k/;
+        var str2 = "boooooks";
+        //alert(reg2.exec(str2));//boooook  reg中的*随string中个数变化 0-n
+        var reg3 = /bo?k/;
+        //alert(reg3.exec(str2));//null ?代表"o"只能0-1,只有str2="bk"和"bok"时匹配
+        var reg3 = /bo+k/;
+        //alert(reg3.exec(str2));//boooook +代表"o"只能1-n,当str2="bk"时不匹配
+
+        //【{m,n}】至少出现m次,至多出现n次;【{m,}】至少出现m次;【{,n}】错误用法; 【{m}】正好出现m次;
+        var reg4 = /bo{2,4}k/;
+        var str4 = "booooks";
+        //alert(reg4.test(str4));//booook 匹配"o"是2-4个,其他不符合
+        var reg5 = /bo{2,}k/;
+        var str5 = "booooooooooks";
+        //alert(reg5.exec(str5));//booooooooook 匹配"o"是2个以上,其他不符合
+        var reg6 = /bo{7}k/;
+        var str6 = "boooooooks";
+        //alert(reg6.exec(str6));//booooooooook 匹配的str的"o"正好是7个,不多不少,否则不符合
+
+        //【[a-e]】限定该位字符取值在a-e之间,多个限定条件并列如[a-zA-Z0-9],【匹配个数默认为1】
+        var reg7 = /[a-zA-Z0-9]bo[1-7]k[r-t]/;
+        var str7 = "8bo6kss";
+        //alert(reg7.exec(str7));//8books
+        //【[^a-e]】非 限定该位字符不能取值在a-e之间,多个限定条件并列如[你^a-zA-Z0-9];【只能用在[]区间里】
+        var reg8 = /[^a-zA-Z]bok/;//第一个不能取值字母
+        var str8= "vbo6ks";
+        //alert(reg8.exec(str8));//8books
+        // 【^[a-e]】代表开头第一个在a-e之间
+
+
+        //【等价关系】 方便使用
+        //\d == [0-9]
+        //\D == [^0-9]
+        //\w== [a-zA-Z0-9_]
+        //\W== [^a-zA-Z0-9]
+
+        //【匹配行首】/^ /
+        var reg9 = /^bok/;
+        var str9="asdasd bok aslkdjlaos";
+        //alert(reg9.exec(str9));//null 只有开头是bok才能匹配
+        //【匹配行尾】/ $/
+        var reg10 = /bok$/;
+        var str10="asdasd bok";
+        //alert(reg10.exec(str10));//bok只有结尾是bok才能匹配
+        var reg11 = /^bok$/;//绝对匹配,只有一模一样才恩能匹配
+        var str11="bok";
+        //alert(reg11.exec(str11));//只有是bok才能匹配
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
