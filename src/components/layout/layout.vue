@@ -7,7 +7,7 @@
 			<router-link to="/system/web2" tag="div" class="menu_item">web2</router-link>-->
 			
 			<!--vuex-->
-			<!-- <router-link to="/vuex/vuex-state" tag="div" class="menu_item">state</router-link>
+			<router-link to="/vuex/vuex-state" tag="div" class="menu_item">state</router-link>
 			<router-link to="/vuex/vuex-mapState" tag="div" class="menu_item">mapState</router-link>
 			<router-link to="/vuex/vuex-getters" tag="div" class="menu_item">getters</router-link>
 			<router-link to="/vuex/vuex-mapGetters" tag="div" class="menu_item">mapGetters</router-link>
@@ -17,7 +17,7 @@
 			<router-link to="/vuex/vuex-vuexMapAction" tag="div" class="menu_item">vuexMapAction</router-link>
 			<router-link to="/vuex/vuex-vuexModules" tag="div" class="menu_item">vuexModules</router-link>
 			<router-link to="/vuex/vuex-vuexModulesMapSome" tag="div" class="menu_item">vuexModulesMapSome</router-link>
-			<router-link to="/vuex/vuex-vuexDynamicModules" tag="div" class="menu_item">vuexDynamicModules</router-link> -->
+			<router-link to="/vuex/vuex-vuexDynamicModules" tag="div" class="menu_item">vuexDynamicModules</router-link>
 			
 			<!--递归组件-->
 			<!--<router-link to="/others/recursion-component1" tag="div" class="menu_item">recComponent1</router-link>
