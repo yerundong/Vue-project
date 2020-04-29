@@ -6,6 +6,10 @@
 import "babel-polyfill";
 // 引入vue
 import Vue from 'vue';
+// import axios from 'axios';
+// Vue.prototype.$http = axios;
+
+
 // 引入主组件
 import App from './App';
 // 引入路由
@@ -26,5 +30,9 @@ new Vue({
 	el: '#app',
 	router,
 	store, //Vuex通过store选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 Vue.use(Vuex)）,使得在this.$store中可以获取store对象
-	render: h => h(App)
+	render: h => h(App),
+	created(){
+		// console.log(this);
+	}
 });
+
